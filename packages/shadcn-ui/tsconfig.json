@@ -1,8 +1,5 @@
 {
-  "extends": "tsconfig/react-library.json",
-  "compilerOptions": {
-    "paths": { "@/*": ["./src/*"] },
-  },
-  "include": ["./src"],
+  "extends": "tsconfig/react-library.json", 
+  "include": ["./src", "../../apps/web/src/components/main-nav.tsx", "../../apps/web/src/components/site-header.tsx"],
   "exclude": ["dist", "build", "node_modules"]
 }

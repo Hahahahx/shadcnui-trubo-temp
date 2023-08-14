@@ -1,6 +1,16 @@
 import { createRoot } from 'react-dom/client'
 import { Routes } from '@generouted/react-router'
-import '@/styles/globals.css'
+import 'shadcn-ui/src/styles/globals.css'
+import { ShadcnProvider } from 'shadcn-ui'
 
 const container = document.getElementById('app')!
-createRoot(container).render(<Routes />)
+createRoot(container).render(
+  <ShadcnProvider
+    attribute="class"
+    defaultTheme="system"
+    enableSystem
+    disableTransitionOnChange
+  >
+    <Routes />
+  </ShadcnProvider>,
+)

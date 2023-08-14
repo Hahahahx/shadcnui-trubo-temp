@@ -8,6 +8,8 @@ module.exports = {
   ],
 
   rules: {
+    'turbo/no-undeclared-env-vars': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
     'no-mixed-operators': 'off',
     'react/no-children-prop': 'off',
     '@typescript-eslint/no-var-requires': 'warn',
@@ -123,6 +125,7 @@ module.exports = {
       },
     },
   ],
+
   ignorePatterns: [
     '**/*.mdx',
     '**/*.md',

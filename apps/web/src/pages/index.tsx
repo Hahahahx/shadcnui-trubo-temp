@@ -1,9 +1,7 @@
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+  PageHeader, PageHeaderDescription, PageHeaderHeading, ThemeCustomizer, ThemeWrapper,
 } from 'shadcn-ui'
+import { ThemesTabs } from '@/components/theme-tabs'
 
 export function Loader() {
   return 'Route loader'
@@ -20,29 +18,24 @@ export function Pending() {
 }
 
 export default function Home() {
-  return <h1>
-    <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>Is it accessible?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>Is it styled?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          components&apos; aesthetic.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>Is it animated?</AccordionTrigger>
-        <AccordionContent>
-          Yes. It&apos;s animated by default, but you can disable it if you
-          prefer.
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+  return (
 
-    Home - Basic</h1>
+    <div className="container">
+      <ThemeWrapper
+        defaultTheme="zinc"
+        className="relative flex flex-col items-start md:flex-row md:items-center"
+      >
+        <PageHeader className="relative pb-4 md:pb-8 lg:pb-12">
+          <PageHeaderHeading>Make it yours.</PageHeaderHeading>
+          <PageHeaderDescription>
+            Hand-picked themes that you can copy and paste into your apps.
+          </PageHeaderDescription>
+        </PageHeader>
+        <div className="px-4 pb-8 md:ml-auto md:pb-0">
+          <ThemeCustomizer />
+        </div>
+      </ThemeWrapper>
+      <ThemesTabs />
+    </div>
+  )
 }

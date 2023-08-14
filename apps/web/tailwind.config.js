@@ -1,12 +1,10 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],
   content: [
-    './src/pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-    '../../packages/shadcn-ui/src/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}', '../../packages/shadcn-ui/src/**/*.{ts,tsx}',
   ],
   theme: {
     container: {
@@ -32,8 +30,8 @@ module.exports = {
           foreground: 'hsl(var(--secondary-foreground))',
         },
         destructive: {
-          DEFAULT: 'hsl(var(--destructive))',
-          foreground: 'hsl(var(--destructive-foreground))',
+          DEFAULT: 'hsl(var(--destructive) / <alpha-value>)',
+          foreground: 'hsl(var(--destructive-foreground) / <alpha-value>)',
         },
         muted: {
           DEFAULT: 'hsl(var(--muted))',
@@ -53,9 +51,21 @@ module.exports = {
         },
       },
       borderRadius: {
+        xl: 'calc(var(--radius) + 4px)',
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      fontFamily: {
+        calsans: [
+          'calsans',
+          'sans-serif',
+          ...fontFamily.sans,
+        ],
+        sans: [
+          // 'var(--font-sans)',
+          'calsans', ...fontFamily.sans,
+        ],
       },
       keyframes: {
         'accordion-down': {

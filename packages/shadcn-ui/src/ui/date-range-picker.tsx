@@ -7,6 +7,7 @@ import {
 import { Calendar as CalendarIcon } from 'lucide-react'
 import type { DateRange } from 'react-day-picker'
 
+import { cn } from '../lib/utils'
 import {
   Button,
   Calendar,
@@ -14,7 +15,6 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '.'
-import { cn } from '@/lib/utils'
 
 export function CalendarDateRangePicker({
   className,
@@ -42,20 +42,20 @@ export function CalendarDateRangePicker({
             <CalendarIcon className="mr-2 h-4 w-4" />
             {date?.from
               ? (
-                date.to
-                  ? (
+                  date.to
+                    ? (
                     <>
                       {format(date.from, 'LLL dd, y')} -{' '}
                       {format(date.to, 'LLL dd, y')}
                     </>
-                  )
-                  : (
-                    format(date.from, 'LLL dd, y')
-                  )
-              )
+                      )
+                    : (
+                        format(date.from, 'LLL dd, y')
+                      )
+                )
               : (
                 <span>Pick a date</span>
-              )}
+                )}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="end">

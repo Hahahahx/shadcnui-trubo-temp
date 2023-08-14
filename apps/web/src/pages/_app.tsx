@@ -5,6 +5,7 @@ import { Button } from 'shadcn-ui'
 import {
   Link, useModals, useNavigate, useParams,
 } from '../router'
+import { SiteHeader } from '@/components/site-header'
 
 export function Catch() {
   return <div>Something went wrong... Caught at _app error boundary</div>
@@ -28,7 +29,10 @@ export default function App() {
   const e = () => navigate('/posts/:id/deep', { params: { id: 'e' } })
 
   return (
-    <section style={{ margin: 24 }}>
+    <section style={{ margin: 24 }} className='font-calsans'>
+
+<SiteHeader />
+
       <header style={{
         display: 'flex', gap: 24,
       }}>
