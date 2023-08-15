@@ -4,7 +4,7 @@ import { u } from 'unist-builder'
 import { visit } from 'unist-util-visit'
 import type {
   UnistNode, UnistTree,
-} from './types/unist'
+} from '../types/unist'
 
 export function rehypeComponent() {
   return async (tree: UnistTree) => {
@@ -130,6 +130,7 @@ function getComponentSourceFileContent(node: UnistNode) {
     return null
 
   // Read the source file.
+  // eslint-disable-next-line n/prefer-global/process
   const filePath = path.join(process.cwd(), src)
   const source = fs.readFileSync(filePath, 'utf8')
 

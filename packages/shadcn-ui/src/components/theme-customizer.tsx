@@ -11,6 +11,7 @@ import {
 } from '@radix-ui/react-icons'
 import { template } from 'lodash-es'
 import { Paintbrush } from 'lucide-react'
+
 // import { useTheme } from "next-themes"
 
 import { Drawer } from 'vaul'
@@ -80,37 +81,36 @@ export function ThemeCustomizer() {
         <div className="mr-2 hidden items-center space-x-0.5 lg:flex">
           {mounted
             ? (
-            <>
-              {[
-                'zinc',
-                'rose',
-                'blue',
-                'green',
-                'orange',
-              ].map((color) => {
-                const theme = themes.find((theme) => theme.name === color)
-                const isActive = config.theme === color
+              <>
+                {[
+                  'zinc',
+                  'rose',
+                  'blue',
+                  'green',
+                  'orange',
+                ].map((color) => {
+                  const theme = themes.find((theme) => theme.name === color)
+                  const isActive = config.theme === color
 
-                if (!theme)
-                  return null
+                  if (!theme)
+                    return null
 
-                return (
-                  <Tooltip key={theme.name}>
-                    <TooltipTrigger asChild>
-                      <button
-                        onClick={() =>
-                          setConfig({
-                            ...config,
-                            theme: theme.name,
-                          })
-                        }
-                        className={cn(
-                          'flex h-9 w-9 items-center justify-center rounded-full border-2 text-xs',
-                          isActive
-                            ? 'border-[--theme-primary]'
-                            : 'border-transparent',
-                        )}
-                        style={
+                  return (
+                    <Tooltip key={theme.name}>
+                      <TooltipTrigger asChild>
+                        <button
+                          onClick={() =>
+                            setConfig({
+                              ...config,
+                              theme: theme.name,
+                            })}
+                          className={cn(
+                            'flex h-9 w-9 items-center justify-center rounded-full border-2 text-xs',
+                            isActive
+                              ? 'border-[--theme-primary]'
+                              : 'border-transparent',
+                          )}
+                          style={
                           {
                             '--theme-primary': `hsl(${
                               theme?.activeColor[
@@ -118,40 +118,40 @@ export function ThemeCustomizer() {
                               ]
                             })`,
                           } as React.CSSProperties
-                        }
-                      >
-                        <span
-                          className={cn(
-                            'flex h-6 w-6 items-center justify-center rounded-full bg-[--theme-primary]',
-                          )}
+                          }
                         >
-                          {isActive && (
-                            <CheckIcon className="h-4 w-4 text-white" />
-                          )}
-                        </span>
-                        <span className="sr-only">{theme.label}</span>
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent
-                      align="center"
-                      className="rounded-[0.5rem] bg-zinc-900 text-zinc-50"
-                    >
-                      {theme.label}
-                    </TooltipContent>
-                  </Tooltip>
-                )
-              })}
-            </>
-              )
+                          <span
+                            className={cn(
+                              'flex h-6 w-6 items-center justify-center rounded-full bg-[--theme-primary]',
+                            )}
+                          >
+                            {isActive && (
+                              <CheckIcon className="h-4 w-4 text-white" />
+                            )}
+                          </span>
+                          <span className="sr-only">{theme.label}</span>
+                        </button>
+                      </TooltipTrigger>
+                      <TooltipContent
+                        align="center"
+                        className="rounded-[0.5rem] bg-zinc-900 text-zinc-50"
+                      >
+                        {theme.label}
+                      </TooltipContent>
+                    </Tooltip>
+                  )
+                })}
+              </>
+            )
             : (
-            <div className="mr-1 flex items-center space-x-3">
-              <Skeleton className="h-6 w-6 rounded-full" />
-              <Skeleton className="h-6 w-6 rounded-full" />
-              <Skeleton className="h-6 w-6 rounded-full" />
-              <Skeleton className="h-6 w-6 rounded-full" />
-              <Skeleton className="h-6 w-6 rounded-full" />
-            </div>
-              )}
+              <div className="mr-1 flex items-center space-x-3">
+                <Skeleton className="h-6 w-6 rounded-full" />
+                <Skeleton className="h-6 w-6 rounded-full" />
+                <Skeleton className="h-6 w-6 rounded-full" />
+                <Skeleton className="h-6 w-6 rounded-full" />
+                <Skeleton className="h-6 w-6 rounded-full" />
+              </div>
+            )}
         </div>
         <Popover>
           <PopoverTrigger asChild>
@@ -254,7 +254,7 @@ function Customizer() {
           </div>
           <div className="grid grid-cols-3 gap-2">
             <Button
-              variant={'outline'}
+              variant="outline"
               size="sm"
               onClick={() => setConfig({
                 ...config, style: 'default',
@@ -266,7 +266,7 @@ function Customizer() {
               Default
             </Button>
             <Button
-              variant={'outline'}
+              variant="outline"
               size="sm"
               onClick={() => setConfig({
                 ...config, style: 'new-york',
@@ -287,41 +287,41 @@ function Customizer() {
 
               return mounted
                 ? (
-                <Button
-                  variant={'outline'}
-                  size="sm"
-                  key={theme.name}
-                  onClick={() => {
-                    setConfig({
-                      ...config,
-                      theme: theme.name,
-                    })
-                  }}
-                  className={cn(
-                    'justify-start',
-                    isActive && 'border-2 border-primary',
-                  )}
-                  style={
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    key={theme.name}
+                    onClick={() => {
+                      setConfig({
+                        ...config,
+                        theme: theme.name,
+                      })
+                    }}
+                    className={cn(
+                      'justify-start',
+                      isActive && 'border-2 border-primary',
+                    )}
+                    style={
                     {
                       '--theme-primary': `hsl(${
                         theme?.activeColor[mode === 'dark' ? 'dark' : 'light']
                       })`,
                     } as React.CSSProperties
-                  }
-                >
-                  <span
-                    className={cn(
-                      'mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]',
-                    )}
+                    }
                   >
-                    {isActive && <CheckIcon className="h-4 w-4 text-white" />}
-                  </span>
-                  {theme.label}
-                </Button>
-                  )
+                    <span
+                      className={cn(
+                        'mr-1 flex h-5 w-5 shrink-0 -translate-x-1 items-center justify-center rounded-full bg-[--theme-primary]',
+                      )}
+                    >
+                      {isActive && <CheckIcon className="h-4 w-4 text-white" />}
+                    </span>
+                    {theme.label}
+                  </Button>
+                )
                 : (
-                <Skeleton className="h-8 w-full" key={theme.name} />
-                  )
+                  <Skeleton className="h-8 w-full" key={theme.name} />
+                )
             })}
           </div>
         </div>
@@ -337,17 +337,17 @@ function Customizer() {
             ].map((value) => {
               return (
                 <Button
-                  variant={'outline'}
+                  variant="outline"
                   size="sm"
                   key={value}
                   onClick={() => {
                     setConfig({
                       ...config,
-                      radius: parseFloat(value),
+                      radius: Number.parseFloat(value),
                     })
                   }}
                   className={cn(
-                    config.radius === parseFloat(value)
+                    config.radius === Number.parseFloat(value)
                       && 'border-2 border-primary',
                   )}
                 >
@@ -362,33 +362,33 @@ function Customizer() {
           <div className="grid grid-cols-3 gap-2">
             {mounted
               ? (
-              <>
-                <Button
-                  variant={'outline'}
-                  size="sm"
-                  onClick={() => setMode('light')}
-                  className={cn(mode === 'light' && 'border-2 border-primary')}
-                >
-                  <SunIcon className="mr-1 -translate-x-1" />
-                  Light
-                </Button>
-                <Button
-                  variant={'outline'}
-                  size="sm"
-                  onClick={() => setMode('dark')}
-                  className={cn(mode === 'dark' && 'border-2 border-primary')}
-                >
-                  <MoonIcon className="mr-1 -translate-x-1" />
-                  Dark
-                </Button>
-              </>
-                )
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setMode('light')}
+                    className={cn(mode === 'light' && 'border-2 border-primary')}
+                  >
+                    <SunIcon className="mr-1 -translate-x-1" />
+                    Light
+                  </Button>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => setMode('dark')}
+                    className={cn(mode === 'dark' && 'border-2 border-primary')}
+                  >
+                    <MoonIcon className="mr-1 -translate-x-1" />
+                    Dark
+                  </Button>
+                </>
+              )
               : (
-              <>
-                <Skeleton className="h-8 w-full" />
-                <Skeleton className="h-8 w-full" />
-              </>
-                )}
+                <>
+                  <Skeleton className="h-8 w-full" />
+                  <Skeleton className="h-8 w-full" />
+                </>
+              )}
           </div>
         </div>
       </div>
@@ -427,11 +427,11 @@ function CopyCodeButton() {
         >
           {hasCopied
             ? (
-            <CheckIcon className="mr-2 h-4 w-4" />
-              )
+              <CheckIcon className="mr-2 h-4 w-4" />
+            )
             : (
-            <CopyIcon className="mr-2 h-4 w-4" />
-              )}
+              <CopyIcon className="mr-2 h-4 w-4" />
+            )}
           Copy
         </Button>
       )}
@@ -468,11 +468,11 @@ function CopyCodeButton() {
               >
                 {hasCopied
                   ? (
-                  <CheckIcon className="mr-2 h-4 w-4" />
-                    )
+                    <CheckIcon className="mr-2 h-4 w-4" />
+                  )
                   : (
-                  <CopyIcon className="mr-2 h-4 w-4" />
-                    )}
+                    <CopyIcon className="mr-2 h-4 w-4" />
+                  )}
                 Copy
               </Button>
             )}
@@ -510,8 +510,8 @@ function CustomizerCode() {
               'muted',
               'accent',
               'destructive',
-            ].map((prefix) => (
-              <>
+            ].map((prefix, i) => (
+              <React.Fragment key={i}>
                 <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
                   {
@@ -530,7 +530,7 @@ function CustomizerCode() {
                   }
                   ;
                 </span>
-              </>
+              </React.Fragment>
             ))}
             <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--border:{' '}
@@ -566,8 +566,8 @@ function CustomizerCode() {
               'muted',
               'accent',
               'destructive',
-            ].map((prefix) => (
-              <>
+            ].map((prefix, i) => (
+              <React.Fragment key={i}>
                 <span className="line text-white">
                   &nbsp;&nbsp;&nbsp;&nbsp;--{prefix}:{' '}
                   {
@@ -586,7 +586,7 @@ function CustomizerCode() {
                   }
                   ;
                 </span>
-              </>
+              </React.Fragment>
             ))}
             <span className="line text-white">
               &nbsp;&nbsp;&nbsp;&nbsp;--border:{' '}

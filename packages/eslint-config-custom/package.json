@@ -3,21 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "main": "index.js",
-  "dependencies": {
-    "@antfu/eslint-config": "^0.38.2",
-    "eslint": "^8.28.0",
-    "eslint-config-next": "^13.2.4",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-config-turbo": "latest",
-    "eslint-mdx": "^2.0.5",
-    "eslint-plugin-mdx": "^2.0.5",
-    "eslint-plugin-react": "7.31.8"
-  },
-  "devDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "^5.1.6"
-  },
+  "dependencies": { 
+    "@antfu/eslint-config-react": "^0.40.2",
+    "eslint": "^8.47.0",  
+    "eslint-config-standard-jsx": "^11.0.0",
+    "eslint-config-turbo": "latest"
+  }, 
   "publishConfig": {
     "access": "public"
   }

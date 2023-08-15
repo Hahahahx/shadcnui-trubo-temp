@@ -6,7 +6,9 @@ module.exports = {
     next: {
       rootDir: [
         'apps/**/*', 'packages/**/*',
+        // 'packages/shadcn-ui/src/**/*',
       ],
     },
   },
+
 }

@@ -1,22 +1,13 @@
 import * as React from 'react'
 import {
-  Check, Command, Plus, Send,
+  Check, Plus, Send,
 } from 'lucide-react'
-
 import {
   Avatar, AvatarFallback, AvatarImage,
-} from '@radix-ui/react-avatar'
-import {
-  Dialog, DialogContent, DialogDescription, DialogTitle,
-} from '@radix-ui/react-dialog'
-import {
-  Tooltip, TooltipContent, TooltipProvider, TooltipTrigger,
-} from '@radix-ui/react-tooltip'
-import {
-  CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList,
-} from 'cmdk'
-import {
-  Button, Card, CardContent, CardFooter, CardHeader, DialogFooter, DialogHeader, Input, cn,
+  Button, Card, CardContent, CardFooter,
+  CardHeader, Command, CommandEmpty,
+  CommandGroup, CommandInput, CommandItem, CommandList, Dialog, DialogContent,
+  DialogDescription, DialogFooter, DialogHeader, DialogTitle, Input, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, cn,
 } from '..'
 
 const users = [
@@ -145,13 +136,14 @@ export function CardsChat() {
               placeholder="Type your message..."
               className="flex-1"
             />
-            <Button type="submit" >
+            <Button type="submit">
               <Send className="h-4 w-4" />
               <span className="sr-only">Send</span>
             </Button>
           </form>
         </CardFooter>
       </Card>
+
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="gap-0 p-0 outline-none">
           <DialogHeader className="px-4 pb-4 pt-5">
@@ -202,8 +194,8 @@ export function CardsChat() {
                     </div>
                     {selectedUsers.includes(user)
                       ? (
-                      <Check className="ml-auto flex h-5 w-5 text-primary" />
-                        )
+                        <Check className="ml-auto flex h-5 w-5 text-primary" />
+                      )
                       : null}
                   </CommandItem>
                 ))}
@@ -213,23 +205,23 @@ export function CardsChat() {
           <DialogFooter className="flex items-center border-t p-4 sm:justify-between">
             {selectedUsers.length > 0
               ? (
-              <div className="flex -space-x-2 overflow-hidden">
-                {selectedUsers.map((user) => (
-                  <Avatar
-                    key={user.email}
-                    className="inline-block border-2 border-background"
-                  >
-                    <AvatarImage src={user.avatar} />
-                    <AvatarFallback>{user.name[0]}</AvatarFallback>
-                  </Avatar>
-                ))}
-              </div>
-                )
+                <div className="flex -space-x-2 overflow-hidden">
+                  {selectedUsers.map((user) => (
+                    <Avatar
+                      key={user.email}
+                      className="inline-block border-2 border-background"
+                    >
+                      <AvatarImage src={user.avatar} />
+                      <AvatarFallback>{user.name[0]}</AvatarFallback>
+                    </Avatar>
+                  ))}
+                </div>
+              )
               : (
-              <p className="text-sm text-muted-foreground">
-                Select users to add to this thread.
-              </p>
-                )}
+                <p className="text-sm text-muted-foreground">
+                  Select users to add to this thread.
+                </p>
+              )}
             <Button
               disabled={selectedUsers.length < 2}
               onClick={() => {

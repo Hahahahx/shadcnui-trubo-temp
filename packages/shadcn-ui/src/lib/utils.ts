@@ -17,5 +17,6 @@ export function formatDate(input: string | number): string {
 }
 
 export function absoluteUrl(path: string) {
+  // eslint-disable-next-line n/prefer-global/process
   return `${process.env.NEXT_PUBLIC_APP_URL}${path}`
 }

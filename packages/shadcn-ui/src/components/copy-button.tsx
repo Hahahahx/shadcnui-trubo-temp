@@ -59,11 +59,11 @@ export function CopyButton({
           value,
           event
             ? {
-                name: event,
-                properties: {
-                  code: value,
-                },
-              }
+              name: event,
+              properties: {
+                code: value,
+              },
+            }
             : undefined,
         )
         setHasCopied(true)
@@ -73,11 +73,11 @@ export function CopyButton({
       <span className="sr-only">Copy</span>
       {hasCopied
         ? (
-        <CheckIcon className="h-3 w-3" />
-          )
+          <CheckIcon className="h-3 w-3" />
+        )
         : (
-        <CopyIcon className="h-3 w-3" />
-          )}
+          <CopyIcon className="h-3 w-3" />
+        )}
     </Button>
   )
 }
@@ -121,11 +121,11 @@ export function CopyWithClassNames({
         >
           {hasCopied
             ? (
-            <CheckIcon className="h-3 w-3" />
-              )
+              <CheckIcon className="h-3 w-3" />
+            )
             : (
-            <CopyIcon className="h-3 w-3" />
-              )}
+              <CopyIcon className="h-3 w-3" />
+            )}
           <span className="sr-only">Copy</span>
         </Button>
       </DropdownMenuTrigger>
@@ -186,11 +186,11 @@ export function CopyNpmCommandButton({
         >
           {hasCopied
             ? (
-            <CheckIcon className="h-3 w-3" />
-              )
+              <CheckIcon className="h-3 w-3" />
+            )
             : (
-            <CopyIcon className="h-3 w-3" />
-              )}
+              <CopyIcon className="h-3 w-3" />
+            )}
           <span className="sr-only">Copy</span>
         </Button>
       </DropdownMenuTrigger>

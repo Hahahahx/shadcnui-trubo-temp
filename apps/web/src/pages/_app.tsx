@@ -3,7 +3,7 @@ import { Modals } from '@generouted/react-router'
 
 import { Button } from 'shadcn-ui'
 import {
-  Link, useModals, useNavigate, useParams,
+  useModals, useNavigate, useParams,
 } from '../router'
 import { SiteHeader } from '@/components/site-header'
 
@@ -29,26 +29,16 @@ export default function App() {
   const e = () => navigate('/posts/:id/deep', { params: { id: 'e' } })
 
   return (
-    <section style={{ margin: 24 }} className='font-calsans'>
+    <section style={{ margin: 24 }} className="font-calsans tracking-wide">
 
-<SiteHeader />
+      <SiteHeader />
 
       <header style={{
         display: 'flex', gap: 24,
-      }}>
-        <Link to="/">Home</Link>
-        <Link to={{ pathname: '/about' }}>About</Link>
-        <Link to="/posts">Posts</Link>
-        <Link to="/posts/:id/:pid?" params={{
-          id: '1', pid: '2',
-        }}>
-          Posts by id/pid
-        </Link>
-        <Link to="/posts/:id" params={{ id: 'id' }}>
-          Posts by id
-        </Link>
+      }}
+      >
         <Button onClick={() => modals.open('/modal')}>
-        Global modal at current route
+          Global modal at current route
         </Button>
         <Button onClick={() => modals.open('/modal', { at: '/about' })}>Global modal at /about</Button>
         <Button onClick={e}>navigate to</Button>

@@ -21,27 +21,30 @@ export function MainNav() {
       </Link>
       <nav className="flex items-center space-x-6 text-sm font-medium">
         <Link
-          to="/docs"
+          to="/about"
           className={cn(
             'transition-colors hover:text-foreground/80',
-            pathname === '/docs' ? 'text-foreground' : 'text-foreground/60',
+            pathname === '/about' ? 'text-foreground' : 'text-foreground/60',
           )}
         >
-          Documentation
+          About
         </Link>
         <Link
-          to="/docs/components"
+          to="/posts"
           className={cn(
             'transition-colors hover:text-foreground/80',
-            pathname?.startsWith('/docs/components')
+            pathname?.startsWith('/posts')
               ? 'text-foreground'
               : 'text-foreground/60',
           )}
         >
-          Components
+          Posts
         </Link>
         <Link
-          to="/themes"
+          to="/posts/:id/:pid?"
+          params={{
+            id: '1', pid: '2',
+          }}
           className={cn(
             'transition-colors hover:text-foreground/80',
             pathname?.startsWith('/themes')
@@ -49,10 +52,13 @@ export function MainNav() {
               : 'text-foreground/60',
           )}
         >
-          Themes
+          Posts by id/pid?
         </Link>
         <Link
-          to="/examples"
+          to="/posts/:id"
+          params={{
+            id: 'test',
+          }}
           className={cn(
             'transition-colors hover:text-foreground/80',
             pathname?.startsWith('/examples')
@@ -60,15 +66,7 @@ export function MainNav() {
               : 'text-foreground/60',
           )}
         >
-          Examples
-        </Link>
-        <Link
-          to={siteConfig.links.github}
-          className={cn(
-            'hidden text-foreground/60 transition-colors hover:text-foreground/80 lg:block',
-          )}
-        >
-          GitHub
+          Post by id
         </Link>
       </nav>
     </div>
