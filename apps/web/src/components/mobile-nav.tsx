@@ -1,4 +1,5 @@
 import * as React from 'react'
+
 // import Link, { LinkProps } from "next/link"
 // import { useRouter } from "next/navigation"
 
@@ -64,17 +65,17 @@ export function MobileNav() {
                       {!item.disabled
                         && (item.href
                           ? (
-                          <MobileLink
-                            href={item.href}
-                            onOpenChange={setOpen}
-                            className="text-muted-foreground"
-                          >
-                            {item.title}
-                          </MobileLink>
-                            )
+                            <MobileLink
+                              href={item.href}
+                              onOpenChange={setOpen}
+                              className="text-muted-foreground"
+                            >
+                              {item.title}
+                            </MobileLink>
+                          )
                           : (
-                              item.title
-                            ))}
+                            item.title
+                          ))}
                     </React.Fragment>
                   ))}
               </div>
