@@ -4,7 +4,9 @@ const { fontFamily } = require('tailwindcss/defaultTheme')
 module.exports = {
   darkMode: ['class'],
   content: [
-    './src/**/*.{ts,tsx}', '../../packages/shadcn-ui/src/**/*.{ts,tsx}',
+    'app/**/*.{ts,tsx}',
+    'components/**/*.{ts,tsx}',
+    '../../packages/shadcn-ui/src/**/*.{ts,tsx}',
   ],
   theme: {
     container: {
@@ -57,14 +59,8 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontFamily: {
-        calsans: [
-          'calsans',
-          'sans-serif',
-          ...fontFamily.sans,
-        ],
         sans: [
-          // 'var(--font-sans)',
-          'calsans', ...fontFamily.sans,
+          'var(--font-sans)', ...fontFamily.sans,
         ],
       },
       keyframes: {
@@ -83,5 +79,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [
+    require('tailwindcss-animate'), require('@tailwindcss/container-queries'),
+  ],
 }

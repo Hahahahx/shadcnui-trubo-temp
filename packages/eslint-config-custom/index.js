@@ -3,6 +3,7 @@ module.exports = {
     'standard-jsx', '@antfu/eslint-config-react',
   ],
   rules: {
+    'react/jsx-handler-names': 'warn',
     'react/jsx-pascal-case': 'warn',
     'turbo/no-undeclared-env-vars': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
